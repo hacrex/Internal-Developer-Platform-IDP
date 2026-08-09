@@ -1,5 +1,16 @@
 # [Backstage Demo](https://demo.backstage.io)
 
+## Architecture Diagram
+
+```mermaid
+graph TD
+  Developer --> Backstage
+  Backstage -->|Scaffold| Repo
+  Backstage -->|Provision| Terraform
+  Terraform --> Kubernetes
+```
+
+
 [![Link to backstage-demo in Backstage Demo, Component: backstage-demo](https://demo.backstage.io/api/badges/entity/default/component/backstage-demo/badge/pingback 'Link to backstage-demo in Backstage Demo')](https://demo.backstage.io/catalog/default/component/backstage-demo) [![Entity docs badge, docs: backstage-demo](https://demo.backstage.io/api/badges/entity/default/component/backstage-demo/badge/docs 'Entity docs badge')](https://demo.backstage.io/catalog/default/component/backstage-demo/docs)
 
 This repository is the source code for the demo [Backstage](https://backstage.io/) instance deployed to [demo.backstage.io](https://demo.backstage.io).
