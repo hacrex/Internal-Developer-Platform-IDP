@@ -198,3 +198,8 @@ You can then run it with this command:
 ```bash
 docker run -it -p 7007:7007 demo
 ```
+
+## 🛠️ Functional Templates
+This repository includes production-ready templates to get started quickly:
+- **Terraform**: Located in `terraform/templates/` for cluster and provider setup.
+- **Kubernetes**: Located in `kubernetes/manifests/` for application deployment and security policies.
