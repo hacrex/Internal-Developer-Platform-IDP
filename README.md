@@ -2,7 +2,7 @@
 
 A Backstage-based developer portal with a local service template. The repository started from the [Backstage Demo](https://github.com/backstage/demo) and retains the upstream Apache 2.0 license and source attribution.
 
-The template in `templates/service-with-observability/` creates a small Node.js service with a catalog record, health endpoint, Dockerfile, test workflow, and runbook. It is a practical starting point for a team that wants one consistent service setup without turning the portal into a collection of plugins.
+The template in `templates/service-with-observability/` creates a small Node.js service with a catalog record, health endpoint, Dockerfile, and runbook. It is a practical starting point for a team that wants one consistent service setup without turning the portal into a collection of plugins.
 
 ## Run locally
 

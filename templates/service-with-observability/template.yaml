@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: service-with-observability
   title: Service with Observability
-  description: Create a small Node.js service with catalog metadata, CI validation, container packaging, and an operating runbook.
+  description: Create a small Node.js service with catalog metadata, container packaging, and an operating runbook.
   tags:
     - platform-engineering
     - golden-path
