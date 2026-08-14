@@ -1,0 +1,87 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: service-with-observability
+  title: Service with Observability
+  description: Create a small Node.js service with catalog metadata, CI validation, container packaging, and an operating runbook.
+  tags:
+    - platform-engineering
+    - golden-path
+    - observability
+spec:
+  owner: platform-engineering
+  type: service
+
+  parameters:
+    - title: Service details
+      required: [componentId, owner, system, repoUrl]
+      properties:
+        componentId:
+          title: Component ID
+          type: string
+          description: Lowercase service identifier, for example orders-api.
+          pattern: '^[a-z][a-z0-9-]{2,62}$'
+        owner:
+          title: Owner
+          type: string
+          description: Backstage group or user responsible for the service.
+          ui:field: OwnerPicker
+          ui:options:
+            catalogFilter:
+              kind: Group
+        system:
+          title: System
+          type: string
+          description: System that this service belongs to.
+        repoUrl:
+          title: Repository location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts: [github.com]
+    - title: Runtime settings
+      properties:
+        port:
+          title: HTTP port
+          type: integer
+          default: 8080
+          minimum: 1024
+          maximum: 65535
+        includeHealthEndpoint:
+          title: Include health endpoint
+          type: boolean
+          default: true
+
+  steps:
+    - id: fetchSkeleton
+      name: Render service skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          componentId: ${{ values.componentId }}
+          owner: ${{ values.owner }}
+          system: ${{ values.system }}
+          port: ${{ values.port }}
+          includeHealthEndpoint: ${{ values.includeHealthEndpoint }}
+    - id: publishRepository
+      name: Publish repository
+      action: publish:github
+      input:
+        repoUrl: ${{ values.repoUrl }}
+        description: Golden-path service ${{ values.componentId }} created by the HacRex developer platform.
+        defaultBranch: main
+    - id: registerCatalog
+      name: Register catalog component
+      action: catalog:register
+      input:
+        repoContentsUrl: ${{ steps.publishRepository.output.repoContentsUrl }}
+        catalogInfoPath: /catalog-info.yaml
+
+  output:
+    links:
+      - title: Repository
+        url: ${{ steps.publishRepository.output.remoteUrl }}
+      - title: Catalog component
+        icon: catalog
+        entityRef: ${{ steps.registerCatalog.output.entityRef }}

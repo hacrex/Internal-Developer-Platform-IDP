@@ -187,6 +187,12 @@ catalog:
       target: https://github.com/backstage/demo/blob/master/demo-template/template/template.yaml
       rules:
         - allow: [Template]
+
+    # HacRex portfolio-owned golden path
+    - type: file
+      target: ./portfolio-templates/service-with-observability/template.yaml
+      rules:
+        - allow: [Template]
   providers:
     backstageOpenapi:
       plugins:

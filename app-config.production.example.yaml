@@ -1,0 +1,31 @@
+app:
+  baseUrl: https://developer-portal.example.invalid
+
+backend:
+  baseUrl: https://developer-portal.example.invalid
+  listen:
+    port: 7007
+  database:
+    client: pg
+    connection:
+      connectionString: ${POSTGRES_CONNECTION_STRING}
+
+auth:
+  environment: production
+  providers:
+    github:
+      production:
+        clientId: ${AUTH_GITHUB_CLIENT_ID}
+        clientSecret: ${AUTH_GITHUB_CLIENT_SECRET}
+
+integrations:
+  github:
+    - host: github.com
+      token: ${GITHUB_TOKEN}
+
+catalog:
+  locations:
+    - type: file
+      target: ./portfolio-templates/service-with-observability/template.yaml
+      rules:
+        - allow: [Template]
