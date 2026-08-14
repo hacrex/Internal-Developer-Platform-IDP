@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-demo
+  name: hacrex-internal-developer-platform
   description: An example deployment of a Backstage application.
   annotations:
     github.com/project-slug: backstage/demo
@@ -9,7 +9,7 @@ metadata:
     demo.backstage.io/techdocs-builder: local
 spec:
   type: website
-  owner: backstage/maintainers
+  owner: platform-engineering
   lifecycle: experimental
   consumesApis:
     - demo-graphql
@@ -22,7 +22,7 @@ metadata:
 spec:
   type: graphql
   lifecycle: production
-  owner: backstage/maintainers
+  owner: platform-engineering
   apiConsumedBy:
     - backstage-demo
   definition:

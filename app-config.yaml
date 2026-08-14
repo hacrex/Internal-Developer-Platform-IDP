@@ -1,5 +1,5 @@
 app:
-  title: Backstage Demo
+  title: HacRex Internal Developer Platform
   baseUrl: http://localhost:3000
   # Automatically discover and load all installed Backstage frontend packages
   packages: all

@@ -1,0 +1,4 @@
+This portfolio repository is based on the Backstage Demo project:
+https://github.com/backstage/demo
+
+The imported source is distributed under the Apache License 2.0. HacRex-specific portfolio positioning and deployment guidance are provided separately and do not alter upstream attribution.
