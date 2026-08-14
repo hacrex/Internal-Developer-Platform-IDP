@@ -188,9 +188,9 @@ catalog:
       rules:
         - allow: [Template]
 
-    # HacRex portfolio-owned golden path
+    # HacRex local golden path
     - type: file
-      target: ./portfolio-templates/service-with-observability/template.yaml
+      target: ./templates/service-with-observability/template.yaml
       rules:
         - allow: [Template]
   providers:

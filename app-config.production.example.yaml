@@ -26,6 +26,6 @@ integrations:
 catalog:
   locations:
     - type: file
-      target: ./portfolio-templates/service-with-observability/template.yaml
+      target: ./templates/service-with-observability/template.yaml
       rules:
         - allow: [Template]
